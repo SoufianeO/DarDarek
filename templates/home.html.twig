@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Bienvenue sur le meilleur réseau d'appartements
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="jumbotron mt-3 " style=" background-image:url(https://cdn.pixabay.com/photo/2013/01/05/11/01/caravanserai-73716_960_720.jpg); background-size: cover;
+       color: #FFFFFF; " >
+        <h1 class="display-3" style="font-weight: bold;">DARDAREK !</h1>
+
+        <hr class="my-4" >
+        <p class="" style="font-size: 25px; color: #f9ecec">Nous mettons en relations les voyageurs et les propriétaires qui veulent profiter d'opportunités et gagner de l'argent en proposant leur bien à la location !</p>
+        <p style="color: #f9ecec; font-size: 20px;"></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ path('ads_index') }}" role="button">Voir nos annonces</a>
+        </p>
+    </div>
+    <h2 class="h1 my-5">Nos appartements stars</h2>
+
+    <div class="row">
+        {% for data in ads %}
+            {% include 'ad/_ad.html.twig' with {'ad': data.annonce} %}
+        {% endfor %}
+    </div>
+
+
+</div>
+{% endblock %}
